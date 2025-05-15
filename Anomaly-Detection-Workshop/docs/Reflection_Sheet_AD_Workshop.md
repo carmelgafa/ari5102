@@ -1,7 +1,7 @@
 
 # Anomaly Detection Workshop – Reflection Sheet
 
-**Name(s):** ______________________________________  **Date:** ____________
+**Name(s):** Carmel Gafa  **Date:** 13.05.2025
 
 Instructions  
 *Work individually or in pairs. Answer concisely (bullet points are fine). Save this file (or export to PDF) and email it to Charlie by **18:00 CET tomorrow**. Feel free to reference code, figures, or metrics from your notebook runs.*
@@ -12,6 +12,8 @@ Instructions
 
 1. **Conceptual distinction**  
    Give one real‑world example of a *contextual* anomaly and explain why a univariate Z‑score could miss it.
+
+   A pedometer recording 3km run at 11:30 in August during a heat wave.
 
 2. **Robust Z‑score metric**  
    On your run, what PR‑AUC did the Robust Z‑score achieve? Briefly interpret its curve shape (early precision vs recall).
