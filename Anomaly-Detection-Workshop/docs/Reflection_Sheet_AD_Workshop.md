@@ -107,7 +107,7 @@ Instructions
 9. **IF SHAP reading**  
    **In your per‑instance SHAP force plot, which feature had the largest red contribution and what actionable insight does that provide?**
 
-   The force plot generated in this study shows that the feature with the most significant red contribution is failed_logins_last_5min, with a value of 13.0. 
+   The force plot generated in this study shows that the feature with the most significant red contribution is failed_logins_last_5min, with a value of 13.0.
 
    This feature, therefore, contributes most to the model's decision to classify the event as anomalous.
 
