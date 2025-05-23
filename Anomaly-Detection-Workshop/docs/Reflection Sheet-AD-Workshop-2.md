@@ -99,7 +99,31 @@ If not managed properly, the LSTM might discard important patterns too rapidly (
 The proper functioning of the forget gate is vital in preventing the model from overreacting to standard variations, which can create false positives. This phase aids in identifying issues based on actual differences from significant context that has been preserved.
 
 5. **Autoencoder Threshold Selection**
-How did changing the reconstruction error threshold affect precision and recall in your LSTM Autoencoder results? What threshold would you recommend for a production system, and why?
+**How did changing the reconstruction error threshold affect precision and recall in your LSTM Autoencoder results? What threshold would you recommend for a production system, and why?**
+
+To understand how the reconstruction error threshold affects the precision and recall of the LSTM Autoencoder results, the threshold constant $\alpha$ was varied to modify the threshold, defined as:
+
+$$
+\text{Threshold} = \mu_{\text{val}} + \alpha \cdot \sigma_{\text{val}}
+$$
+We examined the F1 score, which balances precision and recall, for each value of \(\alpha\). The following graph illustrates the results obtained.
+
+![LSTM Autoencoder Threshold vs F1](img-2-5-1.png)
+
+From this analysis, the following conclusions can be drawn:
+
+**Low Multipliers (2–3):**  
+In this range, the threshold for anomaly detection is low, leading to the identification of even minor deviations as potential anomalies. This heightened sensitivity increases recall, detecting many actual anomalies; however, it also results in a significant number of false positives. Consequently, while the system effectively identifies issues, precision suffers, leading to low F1 scores and indicating suboptimal detection efficiency.
+
+**Moderate Multipliers (4–6):**  
+As thresholds shift into the moderate range, anomaly detection becomes more balanced. This adjustment reduces noise and enhances the accurate identification of genuine anomalies. Both precision and recall significantly improve, creating an optimal scenario where numerous true anomalies are captured without excess false positives. The peak effectiveness is usually observed around a multiplier of 6, representing an ideal compromise between sensitivity and accuracy.
+
+**High Multipliers (7–10):**  
+In the high multiplier range, the detection threshold becomes overly strict, only triggering alerts for the most extreme errors. This leads to increased precision due to fewer false positives; however, recall sharply declines, causing many true anomalies to be overlooked. As a result, F1 scores tend to decrease, as the dominance of false negatives undermines the advantages of enhanced precision. Although the system may appear more accurate, it risks missing critical anomalies that require attention.
+
+Based on the analysis, the threshold constant at $\alpha = 6$ for a production system is recommended.
+This value yields the highest F1 score, indicating an optimal balance between precision and recall, that is it allows the system to detect the majority of meaningful anomalies while minimizing false positives.
+
 
 6. **Comparative Analysis**
 **For your dataset, rank the three methods (Moving Window, ARIMA, LSTM Autoencoder) by F1-score. Identify one domain where the lowest-performing method might actually be preferable.**
@@ -131,9 +155,44 @@ Furthermore, LSTM Autoencoders have the ability to generalize to novel events, r
 ## Notebook 02 – Graph-Based Anomaly Detection
 
 7. **Graph Structure Intuition**
-Describe a real-world scenario where modeling data as a graph would reveal anomalies that traditional tabular methods would miss.
+**Describe a real-world scenario where modeling data as a graph would reveal anomalies that traditional tabular methods would miss.**
+
+A key application of detecting financial transaction fraud involves showing each transaction in a clear table format. This format usually includes columns like transaction ID, sender, receiver, amount, and timestamp. While standard methods can identify unusual transaction amounts, they often do not capture how accounts are related, which is vital for spotting coordinated fraud.
+
+To improve fraud detection, we can represent this system as a graph, where:
+
+- **Nodes** stand for individual accounts.
+- **Edges** represent transactions, with weights based on transaction amounts or frequency.
+
+Using this graph model helps us find relational issues, such as:
+
+- Clusters of transactions that look suspicious, which might suggest fraud rings (organized groups that collaborate to carry out systematic, large-scale fraud).
+- Unusual connections or importance of accounts that have been inactive.
+- Sudden increases in interactions among accounts that are typically considered legitimate.
+
+This approach can make fraud detection strategies more effective and help protect financial transactions.
+
+```mermaid
+graph LR
+    A[Account A] -->|$500| B[Account B]
+    B -->|$200| C[Account C]
+    C -->|$300| A
+    B -->|$150| D[Account D]
+    D -->|$250| B
+    E[Account E] -->|$1000| F[Account F]
+```
+
+In the example above, Nodes A, B, C, and D form a tightly connected cluster with multiple bidirectional transactions. This is structurally anomalous, that is the pattern of connections deviate from the expected.
+Nodes E and F have a single large transaction that is potentially anomalous in amount but not structure.
+Such a dense, cyclical pattern among A–D could be flagged by graph-based anomaly detectors, but missed in a row-by-row tabular analysis.
+
+
 8. **Centrality Measure Effectiveness**
-Which graph centrality measure (degree, betweenness, clustering coefficient) was most effective at detecting the injected anomalies in your financial transaction network? Explain why.
+**Which graph centrality measure (degree, betweenness, clustering coefficient) was most effective at detecting the injected anomalies in your financial transaction network? Explain why.**
+
+
+
+
 9. **Node2Vec Parameter Tuning**
 How did adjusting the Node2Vec parameters p and q affect the embedding space? Which configuration best separated normal and anomalous nodes?
 10. **Community Detection Insight**
