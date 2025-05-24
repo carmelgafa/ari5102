@@ -190,17 +190,116 @@ Such a dense, cyclical pattern among A–D could be flagged by graph-based anoma
 8. **Centrality Measure Effectiveness**
 **Which graph centrality measure (degree, betweenness, clustering coefficient) was most effective at detecting the injected anomalies in your financial transaction network? Explain why.**
 
+The analysis of the transaction network indicates that betweenness centrality is the most effective measure for detecting anomalies. In particular, Node 5 stands out as the most significant node due to its high degree, or many direct connections, and its particularly high betweenness centrality. This suggests that Node 5 is located on a large number of the shortest paths connecting other nodes, positioning it as a critical bridge within the network.
 
+Node 5 can serve as a likely candidate for roles in money mule scenarios; it connects multiple fraud clusters; and as an intermediary in money laundering pathways. Data from node-level metrics shows that Node 5 is significant. It has about 10 connections and a high betweenness centrality. For comparison, Node 4 has a betweenness centrality of 0.1359 and Node 0 has 0.1287, suggesting that Node 5 is even more important.
+Graphically, Node 5's prominence is evident: its size and color reflect its high degree and betweenness.
 
+Degree centrality may successfully identify well-connected hubs; however, these hubs are frequently found in scale-free networks and may not always indicate anomalous behavior. Betweenness centrality identifies strategically important nodes, such as bridge nodes facilitating laundering or control points within fraud networks. 
 
 9. **Node2Vec Parameter Tuning**
-How did adjusting the Node2Vec parameters p and q affect the embedding space? Which configuration best separated normal and anomalous nodes?
+**How did adjusting the Node2Vec parameters p and q affect the embedding space? Which configuration best separated normal and anomalous nodes?**
+
+Node2Vec is a graph embedding algorithm that learns vector representations of nodes by simulating second-order biased random walks (decision depends on current node and previous node), enabling it to capture both local and global graph structure. The parameters $p$ and $q$ control the walk’s behavior
+
+- $p$ influences the likelihood of revisiting a node (return)
+- $q$ balances exploration between local proximity and structural similarity.
+
+| Setting              | Effect on Walks       | Embedding Captures               |
+| -------------------- | --------------------- | -------------------------------- |
+| $p = 1$, $q = 1$     | Unbiased random walks | Similar to DeepWalk              |
+| $p \gg 1$, $q \ll 1$ | DFS-like walks        | Structural roles (e.g., bridges) |
+| $p \ll 1$, $q \gg 1$ | BFS-like walks        | Local proximity (communities)    |
+
+
+
+| **Configuration** | **Walk Behavior**                    | **F1** |
+| ----------------- | ------------------------------------ | ------ |
+| $p = 1$,$ q = 1$  | Unbiased (like DeepWalk)             | 0.7273 |
+| $p=2$, $q=0.5$    | Discourages backtracking, DFS-biased | 0.7619 |
+| $p=0.5$, $q=2$    | Encourages return, BFS-biased        | 0.7273 |
+
+The configuration $p=2$, $q=0.5$ produced the highest F1 score of 0.7619, indicating it was the most effective at separating normal and anomalous nodes in the embedding space.
+
 10. **Community Detection Insight**
-When using community-based anomaly detection, what pattern of false positives or false negatives did you observe? What does this suggest about the structure of the anomalies?
+**When using community-based anomaly detection, what pattern of false positives or false negatives did you observe? What does this suggest about the structure of the anomalies?**
+
+The following results were obtained in this test:
+
+```
+Detected 9 communities
+
+Community-Based Method Results:
+True anomalies: 10
+Detected anomalies: 39
+
+Performance:
+Precision: 0.0000
+Recall: 0.0000
+F1 Score: 0.0000
+```
+The community-based method detected no true anomalies and over-flagged boundary nodes as anomalous. This reveals that the injected anomalies were structurally cohesive and internally consistent, causing them to blend into a distinct community and evade detection. Conversely, false positives arose from nodes on the edge of communities, which had low local consistency. The results suggest that this detection strategy is not well-suited for identifying isolated, structured anomaly clusters.
+
+The community-based method detected no true anomalies and over-flagged boundary nodes as anomalous, revealing that the injected anomalies were structurally cohesive and internally consistent, causing them to blend into a distinct community and evade detection. On the other hand, false positives emerged from nodes at the edges of communities that exhibited low local consistency.The results suggest that this detection strategy is unsuited for identifying isolated, structured anomaly clusters.
+
 11. **GNN Architecture Decision**
-If you were to adapt the GCN autoencoder model to detect account takeovers in your transaction network, what specific modifications to the architecture would you make and why?
+**If you were to adapt the GCN autoencoder model to detect account takeovers in your transaction network, what specific modifications to the architecture would you make and why?**
+
+An account takeover occurs when an attacker gains control of a legitimate user’s account and begins initiating unauthorized activity. In the context of a transaction network, this behaviour has distinct temporal and structural signatures that differentiate it from regular account activity. Considering the GCN equation
+
+$$H^{(l+1)} = \sigma(\tilde{D}^{-\frac{1}{2}}\tilde{A}\tilde{D}^{-\frac{1}{2}}H^{(l)}W^{(l)})$$
+
+The encoder part of a GCN autoencoder uses this update rule to produce a final representation $Z = H^{(L)}$.
+The decoder then attempts to reconstruct either:
+The adjacency matrix $\hat{A} \approx A$, or
+The node features $\hat{X} \approx X$,
+ using $Z$ — the learned node embeddings.
+
+The following characteristics are indicative of a takeover,
+
+**Behavioural anomalies** are analyzed when examining how $H^{(l)}$ evolves between time $t$ and $t+1$, even if $\tilde{A}$ remains mostly unchanged.
+
+- Sudden spike in transaction frequency or amount, especially after a period of inactivity.
+- Transactions at unusual times (e.g., 3 AM activity for an account usually active at noon).
+- Sends funds to new or unusual accounts not previously associated with the account.
+- Usage of unfamiliar payment methods or new device/browser metadata if available.
+
+**Structural anomalies** emerge from unusual message-passing via $\tilde{A}$.
+
+- Connects to nodes it has never interacted with before.
+- The rapid increase in connectivity (e.g., from a sparse to a hub node).
+- Sudden rise in betweenness or degree; the account starts linking subgroups.
+- The pattern occurs over a short time window, not gradually.
+
+To detect account takeovers, the GCN autoencoder must be extended to capture both temporal drift in node behaviour and structural deviations in local connectivity.
+
+- Temporal Modeling Extension. Incorporate time dynamics by applying the GCN autoencoder across graph snapshots over time or by embedding it in a temporal framework such as Temporal GCNs (T-GCN).
+- Behavioral Feature Augmentation. Enrich the node feature matrix $H^{(0)} = X$ with behavioral attributes, including:
+
+    - Rolling average transaction value
+    - Count of unique recipients over past windows
+    - Time-of-day activity profile
+    - Device/browser ID fingerprints (if available)
+
+
+Additional References:
+- [[https://www.youtube.com/watch?v=CwHNUX2GWvE]]
+
+
 12. **Comparative Analysis**
 Between statistical methods and graph neural networks, which approach showed better performance on structural anomalies versus attribute-based anomalies? Support your answer with metrics from your runs.
+
+The following results were obtained int  this study:
+
+| **Method**           | **Detected Anomalies** | **Precision** | **Recall** | **F1 Score** |
+|----------------------|------------------------|---------------|------------|--------------|
+| Statistical          | 4                      | 1.0000    | 0.4000     | 0.5714       |
+| GCN Autoencoder      | 13                     | 0.6154        | 0.8000     | 0.6957       |
+| Node2Vec (p=2, q=0.5)| 11                     | 0.7273        | 0.8000 | **0.7619**   |
+
+1. Statistical methods are high in precision but often overlook many anomalies. They work best when obvious issues stand out in data, like unusual connections or groupings. However, they usually miss more subtle problems or those based on relationships within the graph.
+2. The GCN Autoencoder is good at finding structural problems by using the adjacency matrix to create useful embeddings. It effectively identifies unusual patterns but may lead to more false positives because it is generally sensitive.
+3. Node2Vec (p=2, q=0.5) achieved the highest F1 score, showing good performance. It can understand both local neighbourhood patterns and roles in the structure by using biased random walks. This ability helps it identify many anomalies, making it effective for structural and attribute-based differences.
 
 ---
 
@@ -208,10 +307,34 @@ Between statistical methods and graph neural networks, which approach showed bet
 
 13. **Cross-Domain Transfer**
 Identify one technique from time series anomaly detection that could be adapted to improve graph-based approaches, or vice versa. Explain how this transfer would work.
+
+In time series anomaly detection, sequence autoencoders, like LSTM autoencoders are used to rebuild recent data sequences. We flag points or small sequences with a high reconstruction error as anomalies. This works because the model has learned to recreate only normal patterns.
+
+One idea is to improve Graph Convolutional Network (GCN) autoencoders for graph data by adding this method to detect changes over time, similar to time series analysis.
+
+Key steps will include:
+
+1. **Add Temporal Reconstruction Loss**: Create snapshots of the graph over time to capture its changes. Each snapshot represents the graph at a specific moment.
+2. **Use Temporal GCN Autoencoders or Recurrent GCNs**: Turn each snapshot into embeddings with these models. This will compress important information while maintaining the relationships among nodes and helping to find changing patterns.
+3. **Assess Changes in Embeddings**: Check how the embeddings and node features differ across snapshots. This helps identify significant behavioral changes.
+4. **Identify Anomalous Nodes**: Find nodes with large changes in their embeddings and flag them as unusual, similar to practices in time series analysis. This allows for early detection of potential issues.
+
+In summary, by using time-based analysis in GCN autoencoders, we can enhance change detection in dynamic graphs, leading to better identification of unusual behaviors.
+
 14. **Practical Deployment**
 If you were to deploy one of these models in a production environment, what three key monitoring metrics would you track over time to ensure continued detection quality?
+
+
+Monitoring a combination of performance stability, model behaviour, and data drift is desirable to ensure continued detection quality when deploying an anomaly detection model (e.g., GCN Autoencoder, Node2Vec + downstream classifier, or statistical method) in a production environment. Some metrics include:
+
+- Precision-Recall Drift looks at how well a model identifies unusual behaviour over time. Key metrics for this are the F1 Score and trends in Precision and Recall. Monitoring these is important because a drop in precision may mean more false positives, while a decrease in recall can lead to missing actual anomalies. The F1 score gives a complete picture of how the model is performing. If labels, like confirmed fraud cases, are available, it is possible to calculate these metrics using a rolling window. 
+- Embedding drift and reconstruction error distribution is about keeping track of node representations or the reconstruction loss over time. Monitoring these aspects is important because sudden changes in the average reconstruction error or the distribution of node embeddings can indicate problems, like changes in data distribution or a decline in model performance. It is helpful to monitor key statistics such as the mean and standard deviation of reconstruction errors or embedding norms to keep an eye on these changes. Visualizing these changes with dimensionality reduction tools like PCA snapshots over time can offer valuable insights into how the model's performance is changing.
+
 15. **Key Takeaway**
 What was the most surprising or valuable insight you gained from implementing these anomaly detection techniques? (≤3 sentences)
+
+
+
 
 <div style="text-align: center">⁂</div>
 
