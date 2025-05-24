@@ -26,23 +26,35 @@ In order to facilitate the process, point and collective anomalies were temporar
 
 The `calculate_metrics` function was modified slightly to include a confusion matrix. The function yielded the following results:
 
-```text
-confusion matrix:
-[[995   0]
- [  5   0]]
-Method: Moving Window
-Accuracy:  0.9950
-Precision: 0.0000
-Recall:    0.0000
-F1 Score:  0.0000
-----------------------------------------
-```
+| **Method**          | **Accuracy** | **Precision** | **Recall** | **F1 Score** | **True Positives (TP)** | 
+|---------------------|--------------|---------------|------------|--------------|--------------------------|
+| Moving Window       | 0.9950       | 0.0000        | 0.0        | 0.0000       | 0                        |
+| ARIMA               | 0.8740       | 0.0081        | 0.2        | 0.0156       | 1                        |
+| Feedforward NN      | 0.9908       | 0.0000        | 0.0        | 0.0000       | 1                        |
+| LSTM                | 0.9867       | 0.1000        | 0.2        | 0.1333       | 5                        |
+| LSTM Autoencoder    | 0.9120       | 0.0538        | 1.0        | 0.1020       | 5                        |
 
-The moving window `sample_start` and `sample_end` were adjusted to be 580 and 620, respectively, so that the contextual anomaly would be detected by the moving window method, and ensure that the anomaly would have been missed by a simple threshold method. The following image confirmed this fact:
+This shows that LSTM and LSTM autoencoder model do capture all the anomalies correctly, but they also identify a considerable number of normal data points as anomalies.
 
-![Anomaly Detection](./img-2-1-3.png)
+Increasing the amplitude of the anomalies back to 15 does impact the performance models;
 
-![Moving Window](./img-2-1-2.png)
+| **Method**          | **Accuracy** | **Precision** | **Recall** | **F1 Score** | **True Positives (TP)** |
+|---------------------|--------------|---------------|------------|--------------|--------------------------|
+| Moving Window       | 0.9950       | 0.0000        | 0.0        | 0.0000       | 0                        |
+| ARIMA               | 0.9010       | 0.0104        | 0.2        | 0.0198       | 1                        |
+| Feedforward NN      | 0.9990       | 0.8333        | 1.0        | 0.9091       | 5                        |
+| LSTM                | 0.9959       | 0.5556        | 1.0        | 0.7143       | 5                        |
+| LSTM Autoencoder    | 0.8060       | 0.0251        | 1.0        | 0.0490       | 5                        |
+
+
+Contextual anomalies represent a challenge in data analysis because they are harder to find than point anomalies. This difficulty comes from traditional statistical methods often struggle with patterns that depend on context. On the other hand, neural networks can be overly sensitive to changes when they do not have the right temporal context. Understanding these differences is important to create effective detection strategies in various applications.
+
+Moving Window missed contextual patterns entirely. 
+ARIMA managed to capture some temporal structure and 
+NN resulted in higher TP but many FPs, meaning the model is overly sensitive to patterns.
+The LSTM model excelled with high recall and moderate precision, effectively identifying key patterns over time. Its design helps it manage information for understanding long-term trends. However, if the training data lacks diverse behaviors, it may misidentify normal variations as issues, resulting in false positives..
+The LSTM Autoencoder successfully identifies most anomalies but struggles with precision, meaning it often raises false alarms. While it is good at spotting unusual patterns, it also tends to misidentify normal behavior as a problem. This issue happens in models that rely on reconstruction when the error threshold isn’t set properly. Therefore, it’s important to fine-tune or adjust the threshold for real-world use.
+
 2. **Statistical vs Deep Learning**
 **Between ARIMA and LSTM models, which performed better on your dataset and why? Reference specific metrics.**
 
@@ -331,10 +343,9 @@ Monitoring a combination of performance stability, model behaviour, and data dri
 - Embedding drift and reconstruction error distribution is about keeping track of node representations or the reconstruction loss over time. Monitoring these aspects is important because sudden changes in the average reconstruction error or the distribution of node embeddings can indicate problems, like changes in data distribution or a decline in model performance. It is helpful to monitor key statistics such as the mean and standard deviation of reconstruction errors or embedding norms to keep an eye on these changes. Visualizing these changes with dimensionality reduction tools like PCA snapshots over time can offer valuable insights into how the model's performance is changing.
 
 15. **Key Takeaway**
-What was the most surprising or valuable insight you gained from implementing these anomaly detection techniques? (≤3 sentences)
+**What was the most surprising or valuable insight you gained from implementing these anomaly detection techniques? (≤3 sentences)**
 
-
-
+One important insight was that graph-based models, like Node2Vec and GCN Autoencoders, can find unusual activity that traditional flat, tabular data methods might miss. These models identify suspicious nodes by their characteristics and how they relate to other nodes. They show how valuable it is to consider relationships in anomaly detection, especially for issues like fraud rings or account takeovers.
 
 <div style="text-align: center">⁂</div>
 

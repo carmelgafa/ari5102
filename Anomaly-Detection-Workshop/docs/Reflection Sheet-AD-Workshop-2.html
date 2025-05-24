@@ -1,0 +1,579 @@
+<!DOCTYPE html><html><head>
+      <title>Reflection Sheet-AD-Workshop-2</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\carme\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      <script type="text/javascript" src="file:///c:\Users\carme\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="anomaly-detection-workshop-2--reflection-sheet">Anomaly Detection Workshop 2 – Reflection Sheet </h1>
+<p><strong>Name(s):</strong> Carmel Gafa  <strong>Date:</strong> 20.05.2025</p>
+<p>Instructions<br>
+<em>Work individually or in pairs. Answer concisely (bullet points are fine). Save this file (or export to PDF) and email it to the instructor by <strong>18:00 tomorrow</strong>. Feel free to reference code, figures, or metrics from your notebook runs.</em></p>
+<hr>
+<h2 id="notebook-01--dynamic-time-series-anomaly-detection">Notebook 01 – Dynamic (Time Series) Anomaly Detection </h2>
+<ol>
+<li><strong>Anomaly Type Identification</strong><br>
+<strong>Describe one example from the notebook where a contextual anomaly was detected that would have been missed using a simple threshold method.</strong></li>
+</ol>
+<p>Let us start by rephrasing the characteristics of contextual anomalies, that is a data point appears normal when considered alone (i.e. its value isn't extreme),but is anomalous when considered in the context of its temporal sequence or neighboring points.</p>
+<p>The <code>generate_synthetic_data</code> function contained a specific section that generated a contextual anomaly, however a couple of issues were noted:</p>
+<ul>
+<li>The anomaly was meant to start between 0:00 and 6:00 (unusually high value at night), but it was specified to start at index 400, that is 16:00. The index was moved to 600, that is 0:00 so that it would start at an appropriate time of night.</li>
+<li>The anomaly offset the value by a value of 15, which was excessively large, even for the daytime and would have exceeded the threshold. It was was adjusted to a value of 6 so that the anomaly would be less extreme.</li>
+</ul>
+<p>In order to facilitate the process, point and collective anomalies were temporary commented out to visualize the contextual anomaly only, obtaining the following figure:</p>
+<p><img src="img-2-1-1.png" alt="Contextual Anomaly"></p>
+<p>The <code>calculate_metrics</code> function was modified slightly to include a confusion matrix. The function yielded the following results:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Method</strong></th>
+<th><strong>Accuracy</strong></th>
+<th><strong>Precision</strong></th>
+<th><strong>Recall</strong></th>
+<th><strong>F1 Score</strong></th>
+<th><strong>True Positives (TP)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Moving Window</td>
+<td>0.9950</td>
+<td>0.0000</td>
+<td>0.0</td>
+<td>0.0000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ARIMA</td>
+<td>0.8740</td>
+<td>0.0081</td>
+<td>0.2</td>
+<td>0.0156</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Feedforward NN</td>
+<td>0.9908</td>
+<td>0.0000</td>
+<td>0.0</td>
+<td>0.0000</td>
+<td>1</td>
+</tr>
+<tr>
+<td>LSTM</td>
+<td>0.9867</td>
+<td>0.1000</td>
+<td>0.2</td>
+<td>0.1333</td>
+<td>5</td>
+</tr>
+<tr>
+<td>LSTM Autoencoder</td>
+<td>0.9120</td>
+<td>0.0538</td>
+<td>1.0</td>
+<td>0.1020</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>This shows that LSTM and LSTM autoencoder model do capture all the anomalies correctly, but they also identify a considerable number of normal data points as anomalies.</p>
+<p>Increasing the amplitude of the anomalies back to 15 does impact the performance models;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Method</strong></th>
+<th><strong>Accuracy</strong></th>
+<th><strong>Precision</strong></th>
+<th><strong>Recall</strong></th>
+<th><strong>F1 Score</strong></th>
+<th><strong>True Positives (TP)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Moving Window</td>
+<td>0.9950</td>
+<td>0.0000</td>
+<td>0.0</td>
+<td>0.0000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ARIMA</td>
+<td>0.9010</td>
+<td>0.0104</td>
+<td>0.2</td>
+<td>0.0198</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Feedforward NN</td>
+<td>0.9990</td>
+<td>0.8333</td>
+<td>1.0</td>
+<td>0.9091</td>
+<td>5</td>
+</tr>
+<tr>
+<td>LSTM</td>
+<td>0.9959</td>
+<td>0.5556</td>
+<td>1.0</td>
+<td>0.7143</td>
+<td>5</td>
+</tr>
+<tr>
+<td>LSTM Autoencoder</td>
+<td>0.8060</td>
+<td>0.0251</td>
+<td>1.0</td>
+<td>0.0490</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>Contextual anomalies represent a challenge in data analysis because they are harder to find than point anomalies. This difficulty comes from traditional statistical methods often struggle with patterns that depend on context. On the other hand, neural networks can be overly sensitive to changes when they do not have the right temporal context. Understanding these differences is important to create effective detection strategies in various applications.</p>
+<p>Moving Window missed contextual patterns entirely.<br>
+ARIMA managed to capture some temporal structure and<br>
+NN resulted in higher TP but many FPs, meaning the model is overly sensitive to patterns.<br>
+The LSTM model excelled with high recall and moderate precision, effectively identifying key patterns over time. Its design helps it manage information for understanding long-term trends. However, if the training data lacks diverse behaviors, it may misidentify normal variations as issues, resulting in false positives..<br>
+The LSTM Autoencoder successfully identifies most anomalies but struggles with precision, meaning it often raises false alarms. While it is good at spotting unusual patterns, it also tends to misidentify normal behavior as a problem. This issue happens in models that rely on reconstruction when the error threshold isn’t set properly. Therefore, it’s important to fine-tune or adjust the threshold for real-world use.</p>
+<ol start="2">
+<li><strong>Statistical vs Deep Learning</strong><br>
+<strong>Between ARIMA and LSTM models, which performed better on your dataset and why? Reference specific metrics.</strong></li>
+</ol>
+<p>When comparing ARIMA and LSTM models, the following results are obtained:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Metric</strong></th>
+<th><strong>ARIMA</strong></th>
+<th><strong>LSTM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accuracy</td>
+<td>0.7750</td>
+<td>0.9764</td>
+</tr>
+<tr>
+<td>Precision</td>
+<td>0.0947</td>
+<td>0.6923</td>
+</tr>
+<tr>
+<td>Recall</td>
+<td>0.8214</td>
+<td>0.3214</td>
+</tr>
+<tr>
+<td>F1 Score</td>
+<td>0.1697</td>
+<td>0.4390</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Accuracy</strong>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Accuracy</mtext><mo>=</mo><mfrac><mrow><mtext>TP</mtext><mo>+</mo><mtext>TN</mtext></mrow><mtext>Total&nbsp;samples</mtext></mfrac></mrow><annotation encoding="application/x-tex">\text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{Total samples}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Accuracy</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.3534em;vertical-align:-0.4811em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">Total&nbsp;samples</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">TP</span></span><span class="mbin mtight">+</span><span class="mord text mtight"><span class="mord mtight">TN</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>. Accuracy is not reliable in highly imbalanced datasets, which is the case in anomaly detection. A model hence obtain get very high accuracy  if it identifies all points as normal. It has therefore low relevance in anomaly detection.</li>
+<li><strong>Precision</strong>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Precision</mtext><mo>=</mo><mfrac><mtext>TP</mtext><mrow><mtext>TP</mtext><mo>+</mo><mtext>FP</mtext></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">Precision</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2757em;vertical-align:-0.4033em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">TP</span></span><span class="mbin mtight">+</span><span class="mord text mtight"><span class="mord mtight">FP</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">TP</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4033em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>. Precision measures the proportion of correctly identified anomalies, hence focusing on false alarms. This is useful when the cost of false positives is high, for example if fraud detection as legitimate transactions can result in cards being blocked and a costly process of investigation. On the other hand, precision is not a good metric for systems where the cost of a false call is negligible when compared to the impact of missing the actual event, such as in earthquake detection. In these cases, it is better to raise false alarms if doing so increases the chances of detecting a real disaster.</li>
+<li><strong>Recall</strong>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Recall</mtext><mo>=</mo><mfrac><mtext>TP</mtext><mrow><mtext>TP</mtext><mo>+</mo><mtext>FN</mtext></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Recall</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2757em;vertical-align:-0.4033em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">TP</span></span><span class="mbin mtight">+</span><span class="mord text mtight"><span class="mord mtight">FN</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">TP</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4033em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>. Recall measures the proportion of actual anomalies that were correctly identified, thus focusing on missed calls. It is essential in scenarios where missing an anomaly carries a high cost. For example, in earthquake detection, a missed call could lead to loss of life. However, it can be misleading in systems where false positives are costly, such as fraud detection. Optimizing for high recall might mean flagging many legitimate transactions as fraudulent, leading to blocked cards and costly investigations.</li>
+<li><strong>F1 Score</strong>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>F1</mtext><mo>=</mo><mn>2</mn><mo>⋅</mo><mfrac><mrow><mtext>Precision</mtext><mo>⋅</mo><mtext>Recall</mtext></mrow><mrow><mtext>Precision</mtext><mo>+</mo><mtext>Recall</mtext></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">F1</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2834em;vertical-align:-0.4033em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">Precision</span></span><span class="mbin mtight">+</span><span class="mord text mtight"><span class="mord mtight">Recall</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">Precision</span></span><span class="mbin mtight">⋅</span><span class="mord text mtight"><span class="mord mtight">Recall</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4033em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>. F1 balances precision and recall, giving a single summary <a href="http://metric.It">metric.It</a> is particularly useful the desire to avoid too many false alarms (precision) and the desire not to miss too many anomalies (recall) are balanced.</li>
+</ul>
+<p>So in our case:</p>
+<ul>
+<li>ARIMA was better at capturing all anomalies (recall  of 0.82 vs 0.32), but most were incorrect indicating overfitting.</li>
+<li>LSTM reduced false positives (precision of 0.69 vs 0.09), making its detections more trustworthy.</li>
+<li>LSTM’s balance between precision and recall was far better (F1 of 0.4390 vs 0.1697).</li>
+</ul>
+<ol start="3">
+<li><strong>Vanishing Gradient Analysis</strong><br>
+<strong>Explain in your own words how the vanishing gradient problem affects RNNs' ability to detect long-term anomaly patterns, and how LSTMs address this.</strong></li>
+</ol>
+<p>The vanishing gradient problem is a fundamental issue in training RNNs, and it directly impacts their ability to detect long-term anomaly patterns in time series data.<br>
+The model computes gradients for each step when using backpropagation through time. These gradients are multiplied repeatedly as they are propagated backward across time steps. If the activation function (like tanh) has derivatives ≤ 1 (as it usually does), this repeated multiplication causes gradients to shrink exponentially. As a result, earlier layers receive gradients close to zero, meaning they learn little or nothing.</p>
+<p>In anomaly detection, some patterns may depend on events many steps earlier (e.g., gradual drifts, periodic surges). RNNs with vanishing gradients, therefore, fail to capture these long-range dependencies, making them blind to contextual or collective anomalies that span longer intervals.</p>
+<p>LSTMs solve this using:</p>
+<ul>
+<li><strong>Cell State</strong>: A long-term memory component that flows through time largely unaffected by gradient shrinkage.<br>
+Gates:
+<ul>
+<li><strong>Forget Gate</strong>: Decides what to discard.</li>
+<li><strong>Input Gate</strong>: Decides what to add.</li>
+<li><strong>Output Gate</strong>: Controls what to expose to the next layer.</li>
+</ul>
+</li>
+</ul>
+<p>This structure allows gradients to flow through many time steps without vanishing, maintaining a steady signal during training.</p>
+<p>Additional references:</p>
+<ul>
+<li><a href=".\https:\www.youtube.com\watch?v=AsNTP8Kwu80.md">https://www.youtube.com/watch?v=AsNTP8Kwu80</a></li>
+<li><a href=".\https:\www.youtube.com\watch?v=YCzL96nL7j0.md">https://www.youtube.com/watch?v=YCzL96nL7j0</a></li>
+</ul>
+<ol start="4">
+<li><strong>LSTM Gate Importance</strong><br>
+<strong>Which of the three gates in an LSTM cell (forget, input, output) do you think is most critical for anomaly detection? Justify your answer.</strong></li>
+</ol>
+<p>The forget gate is the most important component, as it determines which historical information to retain or eliminate from the cell state. In the context of anomaly detection, the model needs to maintain long-term trends to grasp what is deemed "normal" over time. If the forget gate fails to keep pertinent past information, the model risks losing essential temporal context, which may lead to overlooking subtle or delayed anomalies.</p>
+<p>If not managed properly, the LSTM might discard important patterns too rapidly (resulting in lost information) or retain them for an extended period (causing overfitting).</p>
+<p>The proper functioning of the forget gate is vital in preventing the model from overreacting to standard variations, which can create false positives. This phase aids in identifying issues based on actual differences from significant context that has been preserved.</p>
+<ol start="5">
+<li><strong>Autoencoder Threshold Selection</strong><br>
+<strong>How did changing the reconstruction error threshold affect precision and recall in your LSTM Autoencoder results? What threshold would you recommend for a production system, and why?</strong></li>
+</ol>
+<p>To understand how the reconstruction error threshold affects the precision and recall of the LSTM Autoencoder results, the threshold constant <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> was varied to modify the threshold, defined as:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Threshold</mtext><mo>=</mo><msub><mi>μ</mi><mtext>val</mtext></msub><mo>+</mo><mi>α</mi><mo>⋅</mo><msub><mi>σ</mi><mtext>val</mtext></msub></mrow><annotation encoding="application/x-tex">\text{Threshold} = \mu_{\text{val}} + \alpha \cdot \sigma_{\text{val}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Threshold</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">val</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4445em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">val</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><br>
+We examined the F1 score, which balances precision and recall, for each value of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>. The following graph illustrates the results obtained.</p>
+<p><img src="img-2-5-1.png" alt="LSTM Autoencoder Threshold vs F1"></p>
+<p>From this analysis, the following conclusions can be drawn:</p>
+<p><strong>Low Multipliers (2–3):</strong><br>
+In this range, the threshold for anomaly detection is low, leading to the identification of even minor deviations as potential anomalies. This heightened sensitivity increases recall, detecting many actual anomalies; however, it also results in a significant number of false positives. Consequently, while the system effectively identifies issues, precision suffers, leading to low F1 scores and indicating suboptimal detection efficiency.</p>
+<p><strong>Moderate Multipliers (4–6):</strong><br>
+As thresholds shift into the moderate range, anomaly detection becomes more balanced. This adjustment reduces noise and enhances the accurate identification of genuine anomalies. Both precision and recall significantly improve, creating an optimal scenario where numerous true anomalies are captured without excess false positives. The peak effectiveness is usually observed around a multiplier of 6, representing an ideal compromise between sensitivity and accuracy.</p>
+<p><strong>High Multipliers (7–10):</strong><br>
+In the high multiplier range, the detection threshold becomes overly strict, only triggering alerts for the most extreme errors. This leads to increased precision due to fewer false positives; however, recall sharply declines, causing many true anomalies to be overlooked. As a result, F1 scores tend to decrease, as the dominance of false negatives undermines the advantages of enhanced precision. Although the system may appear more accurate, it risks missing critical anomalies that require attention.</p>
+<p>Based on the analysis, the threshold constant at <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">\alpha = 6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">6</span></span></span></span> for a production system is recommended.<br>
+This value yields the highest F1 score, indicating an optimal balance between precision and recall, that is it allows the system to detect the majority of meaningful anomalies while minimizing false positives.</p>
+<ol start="6">
+<li><strong>Comparative Analysis</strong><br>
+<strong>For your dataset, rank the three methods (Moving Window, ARIMA, LSTM Autoencoder) by F1-score. Identify one domain where the lowest-performing method might actually be preferable.</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Method</th>
+<th>F1 Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>LSTM</td>
+<td>0.4390</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Feedforward NN</td>
+<td>0.4000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LSTM Autoencoder</td>
+<td>0.1836</td>
+</tr>
+</tbody>
+</table>
+<p>Autoencoders are a category of neural networks designed to replicate their input. When an autoencoder is trained with typical data, it becomes adept at reproducing standard patterns. When presented with outlier data, the reconstruction error rises, yielding a natural score for anomalies.</p>
+<p>LSTM Autoencoders merge the sequence processing strengths of LSTMs with the unsupervised learning of autoencoders, making them suited for detecting anomalies in time series data.</p>
+<p>In healthcare settings, particularly in intensive care units, patient vital signs are constantly monitored through sensors that monitor metrics such as pulse rate, blood pressure levels, and the oxygen saturation in the blood (SpO₂).</p>
+<p>The collected data is time-series based, and potential anomalies include irregular heartbeats, sudden decreases in oxygen levels, and fluctuations in blood pressure.</p>
+<p>LSTM Autoencoders may be effective for medical monitoring due to several factors.</p>
+<p>First, they utilize unsupervised learning, enabling them to identify anomalies in real-time data streams without prior labeling, which is essential since anomalies often go unrecorded.</p>
+<p>Additionally, these models excel at capturing temporal patterns, allowing them to analyze how vital signs fluctuate over time and detect irregularities across multiple time steps. This capability is crucial, as the presentation of anomalies can differ from patient to patient.</p>
+<p>Furthermore, LSTM Autoencoders have the ability to generalize to novel events, recognizing deviations even when they haven't encountered a specific scenario before.</p>
+<hr>
+<h2 id="notebook-02--graph-based-anomaly-detection">Notebook 02 – Graph-Based Anomaly Detection </h2>
+<ol start="7">
+<li><strong>Graph Structure Intuition</strong><br>
+<strong>Describe a real-world scenario where modeling data as a graph would reveal anomalies that traditional tabular methods would miss.</strong></li>
+</ol>
+<p>A key application of detecting financial transaction fraud involves showing each transaction in a clear table format. This format usually includes columns like transaction ID, sender, receiver, amount, and timestamp. While standard methods can identify unusual transaction amounts, they often do not capture how accounts are related, which is vital for spotting coordinated fraud.</p>
+<p>To improve fraud detection, we can represent this system as a graph, where:</p>
+<ul>
+<li><strong>Nodes</strong> stand for individual accounts.</li>
+<li><strong>Edges</strong> represent transactions, with weights based on transaction amounts or frequency.</li>
+</ul>
+<p>Using this graph model helps us find relational issues, such as:</p>
+<ul>
+<li>Clusters of transactions that look suspicious, which might suggest fraud rings (organized groups that collaborate to carry out systematic, large-scale fraud).</li>
+<li>Unusual connections or importance of accounts that have been inactive.</li>
+<li>Sudden increases in interactions among accounts that are typically considered legitimate.</li>
+</ul>
+<p>This approach can make fraud detection strategies more effective and help protect financial transactions.</p>
+<div class="mermaid">graph LR
+    A[Account A] --&gt;|$500| B[Account B]
+    B --&gt;|$200| C[Account C]
+    C --&gt;|$300| A
+    B --&gt;|$150| D[Account D]
+    D --&gt;|$250| B
+    E[Account E] --&gt;|$1000| F[Account F]
+</div><p>In the example above, Nodes A, B, C, and D form a tightly connected cluster with multiple bidirectional transactions. This is structurally anomalous, that is the pattern of connections deviate from the expected.<br>
+Nodes E and F have a single large transaction that is potentially anomalous in amount but not structure.<br>
+Such a dense, cyclical pattern among A–D could be flagged by graph-based anomaly detectors, but missed in a row-by-row tabular analysis.</p>
+<ol start="8">
+<li><strong>Centrality Measure Effectiveness</strong><br>
+<strong>Which graph centrality measure (degree, betweenness, clustering coefficient) was most effective at detecting the injected anomalies in your financial transaction network? Explain why.</strong></li>
+</ol>
+<p>The analysis of the transaction network indicates that betweenness centrality is the most effective measure for detecting anomalies. In particular, Node 5 stands out as the most significant node due to its high degree, or many direct connections, and its particularly high betweenness centrality. This suggests that Node 5 is located on a large number of the shortest paths connecting other nodes, positioning it as a critical bridge within the network.</p>
+<p>Node 5 can serve as a likely candidate for roles in money mule scenarios; it connects multiple fraud clusters; and as an intermediary in money laundering pathways. Data from node-level metrics shows that Node 5 is significant. It has about 10 connections and a high betweenness centrality. For comparison, Node 4 has a betweenness centrality of 0.1359 and Node 0 has 0.1287, suggesting that Node 5 is even more important.<br>
+Graphically, Node 5's prominence is evident: its size and color reflect its high degree and betweenness.</p>
+<p>Degree centrality may successfully identify well-connected hubs; however, these hubs are frequently found in scale-free networks and may not always indicate anomalous behavior. Betweenness centrality identifies strategically important nodes, such as bridge nodes facilitating laundering or control points within fraud networks.</p>
+<ol start="9">
+<li><strong>Node2Vec Parameter Tuning</strong><br>
+<strong>How did adjusting the Node2Vec parameters p and q affect the embedding space? Which configuration best separated normal and anomalous nodes?</strong></li>
+</ol>
+<p>Node2Vec is a graph embedding algorithm that learns vector representations of nodes by simulating second-order biased random walks (decision depends on current node and previous node), enabling it to capture both local and global graph structure. The parameters <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> control the walk’s behavior</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> influences the likelihood of revisiting a node (return)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> balances exploration between local proximity and structural similarity.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Effect on Walks</th>
+<th>Embedding Captures</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">p = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">q = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></td>
+<td>Unbiased random walks</td>
+<td>Similar to DeepWalk</td>
+</tr>
+<tr>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>≫</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">p \gg 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≫</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>≪</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">q \ll 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≪</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></td>
+<td>DFS-like walks</td>
+<td>Structural roles (e.g., bridges)</td>
+</tr>
+<tr>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>≪</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">p \ll 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≪</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>≫</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">q \gg 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≫</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></td>
+<td>BFS-like walks</td>
+<td>Local proximity (communities)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Configuration</strong></th>
+<th><strong>Walk Behavior</strong></th>
+<th><strong>F1</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">p = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">q = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></td>
+<td>Unbiased (like DeepWalk)</td>
+<td>0.7273</td>
+</tr>
+<tr>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">p=2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>,&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">q=0.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span></td>
+<td>Discourages backtracking, DFS-biased</td>
+<td>0.7619</td>
+</tr>
+<tr>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">p=0.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span>,&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">q=2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></td>
+<td>Encourages return, BFS-biased</td>
+<td>0.7273</td>
+</tr>
+</tbody>
+</table>
+<p>The configuration <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">p=2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>,&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">q=0.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span> produced the highest F1 score of 0.7619, indicating it was the most effective at separating normal and anomalous nodes in the embedding space.</p>
+<ol start="10">
+<li><strong>Community Detection Insight</strong><br>
+<strong>When using community-based anomaly detection, what pattern of false positives or false negatives did you observe? What does this suggest about the structure of the anomalies?</strong></li>
+</ol>
+<p>The following results were obtained in this test:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Detected 9 communities
+
+Community-Based Method Results:
+True anomalies: 10
+Detected anomalies: 39
+
+Performance:
+Precision: 0.0000
+Recall: 0.0000
+F1 Score: 0.0000
+</code></pre><p>The community-based method detected no true anomalies and over-flagged boundary nodes as anomalous. This reveals that the injected anomalies were structurally cohesive and internally consistent, causing them to blend into a distinct community and evade detection. Conversely, false positives arose from nodes on the edge of communities, which had low local consistency. The results suggest that this detection strategy is not well-suited for identifying isolated, structured anomaly clusters.</p>
+<p>The community-based method detected no true anomalies and over-flagged boundary nodes as anomalous, revealing that the injected anomalies were structurally cohesive and internally consistent, causing them to blend into a distinct community and evade detection. On the other hand, false positives emerged from nodes at the edges of communities that exhibited low local consistency.The results suggest that this detection strategy is unsuited for identifying isolated, structured anomaly clusters.</p>
+<ol start="11">
+<li><strong>GNN Architecture Decision</strong><br>
+<strong>If you were to adapt the GCN autoencoder model to detect account takeovers in your transaction network, what specific modifications to the architecture would you make and why?</strong></li>
+</ol>
+<p>An account takeover occurs when an attacker gains control of a legitimate user’s account and begins initiating unauthorized activity. In the context of a transaction network, this behaviour has distinct temporal and structural signatures that differentiate it from regular account activity. Considering the GCN equation</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi>H</mi><mrow><mo stretchy="false">(</mo><mi>l</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo>=</mo><mi>σ</mi><mo stretchy="false">(</mo><msup><mover accent="true"><mi>D</mi><mo>~</mo></mover><mrow><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow></msup><mover accent="true"><mi>A</mi><mo>~</mo></mover><msup><mover accent="true"><mi>D</mi><mo>~</mo></mover><mrow><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow></msup><msup><mi>H</mi><mrow><mo stretchy="false">(</mo><mi>l</mi><mo stretchy="false">)</mo></mrow></msup><msup><mi>W</mi><mrow><mo stretchy="false">(</mo><mi>l</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H^{(l+1)} = \sigma(\tilde{D}^{-\frac{1}{2}}\tilde{A}\tilde{D}^{-\frac{1}{2}}H^{(l)}W^{(l)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.938em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.254em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mopen">(</span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9202em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span><span style="top:-3.6023em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">~</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.004em;"><span style="top:-3.413em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8443em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9202em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">A</span></span><span style="top:-3.6023em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1111em;"><span class="mord">~</span></span></span></span></span></span></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9202em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span><span style="top:-3.6023em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">~</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.004em;"><span style="top:-3.413em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8443em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>The encoder part of a GCN autoencoder uses this update rule to produce a final representation <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><msup><mi>H</mi><mrow><mo stretchy="false">(</mo><mi>L</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">Z = H^{(L)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">L</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>.<br>
+The decoder then attempts to reconstruct either:<br>
+The adjacency matrix <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>A</mi><mo>^</mo></mover><mo>≈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">\hat{A} \approx A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9468em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">A</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1111em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>, or<br>
+The node features <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>X</mi><mo>^</mo></mover><mo>≈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">\hat{X} \approx X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9468em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>,<br>
+using <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi></mrow><annotation encoding="application/x-tex">Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span> — the learned node embeddings.</p>
+<p>The following characteristics are indicative of a takeover,</p>
+<p><strong>Behavioural anomalies</strong> are analyzed when examining how <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>H</mi><mrow><mo stretchy="false">(</mo><mi>l</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">H^{(l)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span> evolves between time <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6984em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, even if <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>A</mi><mo>~</mo></mover></mrow><annotation encoding="application/x-tex">\tilde{A}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9202em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9202em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">A</span></span><span style="top:-3.6023em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1111em;"><span class="mord">~</span></span></span></span></span></span></span></span></span></span> remains mostly unchanged.</p>
+<ul>
+<li>Sudden spike in transaction frequency or amount, especially after a period of inactivity.</li>
+<li>Transactions at unusual times (e.g., 3 AM activity for an account usually active at noon).</li>
+<li>Sends funds to new or unusual accounts not previously associated with the account.</li>
+<li>Usage of unfamiliar payment methods or new device/browser metadata if available.</li>
+</ul>
+<p><strong>Structural anomalies</strong> emerge from unusual message-passing via <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>A</mi><mo>~</mo></mover></mrow><annotation encoding="application/x-tex">\tilde{A}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9202em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9202em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">A</span></span><span style="top:-3.6023em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1111em;"><span class="mord">~</span></span></span></span></span></span></span></span></span></span>.</p>
+<ul>
+<li>Connects to nodes it has never interacted with before.</li>
+<li>The rapid increase in connectivity (e.g., from a sparse to a hub node).</li>
+<li>Sudden rise in betweenness or degree; the account starts linking subgroups.</li>
+<li>The pattern occurs over a short time window, not gradually.</li>
+</ul>
+<p>To detect account takeovers, the GCN autoencoder must be extended to capture both temporal drift in node behaviour and structural deviations in local connectivity.</p>
+<ul>
+<li>
+<p>Temporal Modeling Extension. Incorporate time dynamics by applying the GCN autoencoder across graph snapshots over time or by embedding it in a temporal framework such as Temporal GCNs (T-GCN).</p>
+</li>
+<li>
+<p>Behavioral Feature Augmentation. Enrich the node feature matrix <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>H</mi><mrow><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></msup><mo>=</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">H^{(0)} = X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">0</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> with behavioral attributes, including:</p>
+<ul>
+<li>Rolling average transaction value</li>
+<li>Count of unique recipients over past windows</li>
+<li>Time-of-day activity profile</li>
+<li>Device/browser ID fingerprints (if available)</li>
+</ul>
+</li>
+</ul>
+<p>Additional References:</p>
+<ul>
+<li><a href=".\https:\www.youtube.com\watch?v=CwHNUX2GWvE.md">https://www.youtube.com/watch?v=CwHNUX2GWvE</a></li>
+</ul>
+<ol start="12">
+<li><strong>Comparative Analysis</strong><br>
+Between statistical methods and graph neural networks, which approach showed better performance on structural anomalies versus attribute-based anomalies? Support your answer with metrics from your runs.</li>
+</ol>
+<p>The following results were obtained int  this study:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Method</strong></th>
+<th><strong>Detected Anomalies</strong></th>
+<th><strong>Precision</strong></th>
+<th><strong>Recall</strong></th>
+<th><strong>F1 Score</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Statistical</td>
+<td>4</td>
+<td>1.0000</td>
+<td>0.4000</td>
+<td>0.5714</td>
+</tr>
+<tr>
+<td>GCN Autoencoder</td>
+<td>13</td>
+<td>0.6154</td>
+<td>0.8000</td>
+<td>0.6957</td>
+</tr>
+<tr>
+<td>Node2Vec (p=2, q=0.5)</td>
+<td>11</td>
+<td>0.7273</td>
+<td>0.8000</td>
+<td><strong>0.7619</strong></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Statistical methods are high in precision but often overlook many anomalies. They work best when obvious issues stand out in data, like unusual connections or groupings. However, they usually miss more subtle problems or those based on relationships within the graph.</li>
+<li>The GCN Autoencoder is good at finding structural problems by using the adjacency matrix to create useful embeddings. It effectively identifies unusual patterns but may lead to more false positives because it is generally sensitive.</li>
+<li>Node2Vec (p=2, q=0.5) achieved the highest F1 score, showing good performance. It can understand both local neighbourhood patterns and roles in the structure by using biased random walks. This ability helps it identify many anomalies, making it effective for structural and attribute-based differences.</li>
+</ol>
+<hr>
+<h3 id="final-reflection">Final reflection </h3>
+<ol start="13">
+<li><strong>Cross-Domain Transfer</strong><br>
+Identify one technique from time series anomaly detection that could be adapted to improve graph-based approaches, or vice versa. Explain how this transfer would work.</li>
+</ol>
+<p>In time series anomaly detection, sequence autoencoders, like LSTM autoencoders are used to rebuild recent data sequences. We flag points or small sequences with a high reconstruction error as anomalies. This works because the model has learned to recreate only normal patterns.</p>
+<p>One idea is to improve Graph Convolutional Network (GCN) autoencoders for graph data by adding this method to detect changes over time, similar to time series analysis.</p>
+<p>Key steps will include:</p>
+<ol>
+<li><strong>Add Temporal Reconstruction Loss</strong>: Create snapshots of the graph over time to capture its changes. Each snapshot represents the graph at a specific moment.</li>
+<li><strong>Use Temporal GCN Autoencoders or Recurrent GCNs</strong>: Turn each snapshot into embeddings with these models. This will compress important information while maintaining the relationships among nodes and helping to find changing patterns.</li>
+<li><strong>Assess Changes in Embeddings</strong>: Check how the embeddings and node features differ across snapshots. This helps identify significant behavioral changes.</li>
+<li><strong>Identify Anomalous Nodes</strong>: Find nodes with large changes in their embeddings and flag them as unusual, similar to practices in time series analysis. This allows for early detection of potential issues.</li>
+</ol>
+<p>In summary, by using time-based analysis in GCN autoencoders, we can enhance change detection in dynamic graphs, leading to better identification of unusual behaviors.</p>
+<ol start="14">
+<li><strong>Practical Deployment</strong><br>
+If you were to deploy one of these models in a production environment, what three key monitoring metrics would you track over time to ensure continued detection quality?</li>
+</ol>
+<p>Monitoring a combination of performance stability, model behaviour, and data drift is desirable to ensure continued detection quality when deploying an anomaly detection model (e.g., GCN Autoencoder, Node2Vec + downstream classifier, or statistical method) in a production environment. Some metrics include:</p>
+<ul>
+<li>Precision-Recall Drift looks at how well a model identifies unusual behaviour over time. Key metrics for this are the F1 Score and trends in Precision and Recall. Monitoring these is important because a drop in precision may mean more false positives, while a decrease in recall can lead to missing actual anomalies. The F1 score gives a complete picture of how the model is performing. If labels, like confirmed fraud cases, are available, it is possible to calculate these metrics using a rolling window.</li>
+<li>Embedding drift and reconstruction error distribution is about keeping track of node representations or the reconstruction loss over time. Monitoring these aspects is important because sudden changes in the average reconstruction error or the distribution of node embeddings can indicate problems, like changes in data distribution or a decline in model performance. It is helpful to monitor key statistics such as the mean and standard deviation of reconstruction errors or embedding norms to keep an eye on these changes. Visualizing these changes with dimensionality reduction tools like PCA snapshots over time can offer valuable insights into how the model's performance is changing.</li>
+</ul>
+<ol start="15">
+<li><strong>Key Takeaway</strong><br>
+<strong>What was the most surprising or valuable insight you gained from implementing these anomaly detection techniques? (≤3 sentences)</strong></li>
+</ol>
+<p>One important insight was that graph-based models, like Node2Vec and GCN Autoencoders, can find unusual activity that traditional flat, tabular data methods might miss. These models identify suspicious nodes by their characteristics and how they relate to other nodes. They show how valuable it is to consider relationships in anomaly detection, especially for issues like fraud rings or account takeovers.</p>
+<div style="text-align: center">⁂</div>
+
+      </div>
+      
+      
+    
+    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
+    
+    
+    
+  
+    </body></html>
